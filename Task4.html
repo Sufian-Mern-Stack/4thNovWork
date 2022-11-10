@@ -9,7 +9,7 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.4.1/dist/css/bootstrap.min.css"
         integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
 
-    <title>Sufian Task 2</title>
+    <title>Sufian Task 4</title>
 
     <style>
         .wrapper {
@@ -39,6 +39,7 @@
             border-top: none;
             border-right: none;
             border-left: none;
+            text-align: center;
         }
 
         .inpp input:focus {
@@ -60,17 +61,18 @@
 
                 <div class="row">
 
-                    <div class="col-12 d-flex align-items-center justify-content-center">
-                        <button id="bttn" type="button" onclick="getInputValue();">Click Me</button>
+                    <div class="col-3 d-flex align-items-center justify-content-center">
+                        <button id="bttn" type="button" onclick="getInputCount1();">Increase</button>
                     </div>
-                    <div class="col-12 d-flex align-items-center justify-content-center pt-3">
-                        <p id="va">0</p>
 
+                    <div class="col-6 inpp">
+                        <input type="text" placeholder="Enter Number" id="myInput">
                     </div>
-                    <div class="col-12 d-flex align-items-center justify-content-center ">
-                        <p id="va1">Zero</p>
+                    <div class="col-3 d-flex align-items-center justify-content-center">
+                        <button id="bttn" type="button" onclick="getInputCount();">Decrease</button>
+                    </div>
 
-                    </div>
+
                 </div>
 
             </div>
@@ -85,31 +87,33 @@
 
     <script>
 
-        var arr = [1, -1, 0, -3, 5]
-        var pos = 0
 
-        document.getElementById("va").innerHTML = "[" + arr.toString() + "]";
+        function getInputCount1() {
 
-        function getInputValue() {
-
-
-            for (let x = 0; x < arr.length; x++) {
-                if (arr[x] > 0) {
-                    pos += arr[x]
-                }
-            }
-
-
-console.log(arr.toString())
-            console.log(pos)
-            document.getElementById("va1").innerHTML = pos;
-
-            pos = 0
-
+            var Count = parseInt(document.getElementById('myInput').value, 10);
+            Count = isNaN(Count) ? 0 : Count;
+            Count++;
+            document.getElementById('myInput').value = Count;
 
         }
 
-        console.log("wewedsfc")
+
+        function getInputCount() {
+
+            var Count = parseInt(document.getElementById('myInput').value, 10);
+            Count = isNaN(Count) ? 0 : Count;
+            
+            if(Count>0){
+                Count--;
+            }
+            else{
+                Count = 0 
+            }
+            document.getElementById('myInput').value = Count;
+
+        }
+
+
 
     </script>
 
